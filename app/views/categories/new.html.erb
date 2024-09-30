@@ -1,0 +1,10 @@
+<h1>Create a Category</h1>
+
+<%= simple_form_for @category do |f| %>
+  <%= f.input :name, required: true %>
+  <%= f.button :submit %>
+<% end %>
+
+<br>
+
+<%= link_to 'Home', categories_path %>

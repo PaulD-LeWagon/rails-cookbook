@@ -1,5 +1,7 @@
 # README
 
+ | <%= link_to "Delete Recipe", bookmark_path(recipe.bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
