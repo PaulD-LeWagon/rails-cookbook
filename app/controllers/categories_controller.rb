@@ -16,7 +16,7 @@ class CategoriesController < ApplicationController
     if @category.save
       redirect_to category_path(@category), status: :see_other
     else
-      render "new", status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 

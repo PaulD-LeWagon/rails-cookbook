@@ -1,8 +1,19 @@
-# README
+// Graphical variables
+@import "config/fonts";
+@import "config/colors";
+@import "config/bootstrap_variables";
 
- <%= link_to "Delete Recipe", bookmark_path(recipe.bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+// External libraries
+@import "bootstrap";
+@import "font-awesome";
 
- .jumbotron {
+// Your CSS partials
+@import "components/index";
+@import "pages/index";
+
+
+
+.jumbotron {
   background-color: #d4d4d4;
   box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.2);
  }
@@ -10,7 +21,7 @@
   text-align: center;
  }
  .jumbotron .container .banner {
-  margin: 150px 0 200px;
+  margin: 100px 0 150px;
  }
  .jumbotron .container .banner h1 {
   font-size: 3.5em;
@@ -27,8 +38,12 @@
   gap: 16px;
 }
 
+.sub-header {
+  margin-top: 25px;
+}
+
  .grid-container {
-  margin: 50px 0;
+  margin: 0 0 50px 0;
   flex-grow: 1;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -39,8 +54,18 @@
     min-height: 200px;
     min-width: 300px;
 
+    padding: 10px;
+
     background-position: center;
     box-shadow: 0 7px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .card > img {
+    margin-bottom: 10px;
+  }
+
+  .card > div >span.rating:before {
+    content: 'Rating: ';
   }
 
  .card .cover-link {
@@ -55,6 +80,13 @@
 
     width: 100%;
     height: 100%;
+  }
+
+  .form-new {
+    width: 45%;
+    border: solid 1px #b9b9b9;
+    border-radius: 4px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
   }
 
 @media (max-width: 1200px) { }
@@ -75,26 +107,3 @@
     grid-template-columns: 1fr;
    }
 }
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

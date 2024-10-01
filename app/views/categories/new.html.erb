@@ -1,10 +1,15 @@
-<h1>Create a Category</h1>
+<%= render 'layouts/jumbatron', title: 'Create a new Category?', sub_title: 'Then add your favourite recipes!' %>
 
-<%= simple_form_for @category do |f| %>
-  <%= f.input :name, required: true %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container flex-column">
 
-<br>
+  <div class="sub-header d-flex justify-content-between align-items-center">
+    <h2>Add Category</h2>
+    <%= link_to 'Back to Homepage', categories_path, class: "ms-auto btn btn-primary"  %>
+  </div>
 
-<%= link_to 'Home', categories_path %>
+  <%= simple_form_for @category, html: { class: 'form-new m-2 p-3'} do |f| %>
+    <%= f.input :name, required: true, label_html: { class: 'form-label mb-3' }, input_html: { class: 'form-control mb-3'} %>
+    <%= f.button :submit, class: 'btn btn-primary ms-auto' %>
+  <% end %>
+
+</div>
