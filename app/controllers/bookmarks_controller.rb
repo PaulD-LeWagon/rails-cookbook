@@ -1,4 +1,6 @@
 class BookmarksController < ApplicationController
+  before_action :set_banner_url
+
   def new
     @category = Category.find(params[:category_id])
     @bookmark = Bookmark.new
@@ -20,5 +22,11 @@ class BookmarksController < ApplicationController
     @category = @bookmark.category
     @bookmark.destroy
     redirect_to category_path(@category), status: :see_other
+  end
+
+  private
+
+  def set_banner_url
+    @banner_image_url = helpers.image_url("food/food-ingredients-banner-img.jpg")
   end
 end

@@ -1,4 +1,4 @@
-<%= render 'layouts/jumbatron', title: 'The Cookbook Hub', sub_title: 'Save all your favourite recipes!' %>
+<%= render 'layouts/jumbatron', title: 'The Cookbook Hub', sub_title: 'Save all your favourite recipes!', image_url: @banner_image_url %>
 
 <div class="container flex-column">
 
@@ -8,10 +8,10 @@
   </div>
 
   <div class="grid-container">
-
+    <!-- background-image: url(https://placehold.co/300x200?font=lato) -->
     <% @categories.each do |category| %>
 
-    <div class="card" style="background-image: url(https://placehold.co/300x200?font=lato);">
+    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= category.photo.attached? ? (cl_image_path category.photo.key, height: 200, crop: :fill) : 'https://placehold.co/300x200?font=lato' %>');">
         <%= link_to category.name, category_path(category), class: "cover-link" %>
     </div>
 

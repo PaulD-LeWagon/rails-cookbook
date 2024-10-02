@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  before_action :set_banner_url
+
   def index
     @categories = Category.all
   end
@@ -12,7 +14,8 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.new(params.require(:category).permit(:name))
+    @category = Category.new(params.require(:category).permit(:name, :photo))
+    # ??? Cloudinary::Uploader.upload()
     if @category.save
       redirect_to category_path(@category), status: :see_other
     else
@@ -24,5 +27,11 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @category.destroy
     redirect_to categories_path, status: :see_other
+  end
+
+  private
+
+  def set_banner_url
+    @banner_image_url = helpers.image_url("food/food-ingredients-banner-img.jpg")
   end
 end

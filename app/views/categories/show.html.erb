@@ -1,4 +1,4 @@
-<%= render 'layouts/jumbatron', title: @category.name.titleize, sub_title: 'Add your favourite recipe!' %>
+<%= render 'layouts/jumbatron', title: @category.name.titleize, sub_title: 'Add your favourite recipe!', image_url: cl_image_path(@category.photo.key) %>
 
 <div class="container flex-column">
 
@@ -13,10 +13,15 @@
       <div class="card d-flex flex-column justify-content-between">
         <img src="<%= recipe.image_url %>" alt="<%= recipe.name %>">
         <h4><%= recipe.name %></h4>
-        <p><%= recipe.description %></p>
+        <a class="my-1" data-bs-toggle="collapse" href="#<%= dom_id recipe %>_description" role="button" aria-expanded="false" aria-controls="<%= dom_id recipe %>_description">
+          Recipe
+        </a>
+        <div class="collapse" id="<%= dom_id recipe %>_description">
+          <p><%= recipe.description %></p>
+        </div>
         <div class="d-flex justify-content-between align-items-end">
           <span class="rating"><%= recipe.rating %></span>
-          <span class="controls"><%= link_to "Delete", bookmark_path(recipe.bookmarks.find { |b| b.category_id == @category.id }), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></span>
+          <span class="controls"><%= link_to "", bookmark_path(recipe.bookmarks.find { |b| b.category_id == @category.id }), class: "btn-close", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></span>
         </div>
       </div>
 

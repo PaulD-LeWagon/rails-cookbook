@@ -1,4 +1,4 @@
-<%= render 'layouts/jumbatron', title: 'Create a new Category?', sub_title: 'Then add your favourite recipes!' %>
+<%= render 'layouts/jumbatron', title: 'Create a new Category?', sub_title: 'Then add your favourite recipes!', image_url: @banner_image_url %>
 
 <div class="container flex-column">
 
@@ -9,6 +9,7 @@
 
   <%= simple_form_for @category, html: { class: 'form-new m-2 p-3'} do |f| %>
     <%= f.input :name, required: true, label_html: { class: 'form-label mb-3' }, input_html: { class: 'form-control mb-3'} %>
+    <%= f.input :photo, as: :file, label_html: { class: 'form-label mb-3' }, input_html: { class: 'form-control mb-3'} %>
     <%= f.button :submit, class: 'btn btn-primary ms-auto' %>
   <% end %>
 
